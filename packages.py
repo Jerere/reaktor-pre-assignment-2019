@@ -73,7 +73,7 @@ def getInverses(currentPackage, a):
     if b:
         currentPackage.update({'invDepends' : b})
 
-# get inverse dependecies
+# get inverse dependencies
 def inverseDependencies(a):
     for currentPackage in a:
         getInverses(currentPackage, a)
@@ -86,7 +86,7 @@ def getNames(a):
 
     return sorted(names)
 
-# return packagas
+# return packages
 def getPackage(a, name):
     for i in a:
         if name == i['name']:
