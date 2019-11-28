@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>package</title>
+  </head>
+  <body>
+    <h1>{{package['name']}}</h1>
+    <br>
+    <p>{{package['desc']}}</p>
+    <br>
+    <h2>*if depend not in packages --> disable</h2>
+    {% if 'depends' in package %}
+      {% for d in package['depends'] %}
+        <a href="/{{d}}">{{d}}</a>
+      {% endfor %}
+    {% endif %}
+    <br>
+    {% if 'invDepends' in package %}
+      {% for i in package['invDepends'] %}
+        <a href="/{{i}}">{{i}}</a>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>

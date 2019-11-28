@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Packages</title>
+  </head>
+  <body>
+    <h1>List</h1>
+    <p>{{ names|count }}</p>
+    <ul id="navigation">
+      {% for name in names %}
+      <li><a href="/{{name}}">{{ name }}</a></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
