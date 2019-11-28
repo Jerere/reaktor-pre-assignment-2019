@@ -2,7 +2,7 @@ import re
 import time
 
 filepath_a = "/var/lib/dpkg/status"
-filepath_b = "./status.real"
+filepath_b = "status.real"
 
 # patterns to find
 regex_dict = {
@@ -50,7 +50,7 @@ def cleanDependsToList(a):
             i.update({'depends' : list(dict.fromkeys(clean))})
 
 
-# read every line
+# read lines
 def parseFile(filepath):
     with open(filepath, "r", encoding="utf8") as file_object:
         line = str(file_object.readline())
@@ -73,12 +73,12 @@ def getInverses(currentPackage, a):
     if b:
         currentPackage.update({'invDepends' : b})
 
-
+# get inverse dependecies
 def inverseDependencies(a):
     for currentPackage in a:
         getInverses(currentPackage, a)
 
-
+# return names
 def getNames(a):
     names = []
     for i in a:
@@ -86,7 +86,7 @@ def getNames(a):
 
     return sorted(names)
 
-
+# return packagas
 def getPackage(a, name):
     for i in a:
         if name == i['name']:
