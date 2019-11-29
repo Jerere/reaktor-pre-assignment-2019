@@ -1,9 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify, make_response
 from packages import main, getNames, getPackage
 
 packageList = main()
 nameList = getNames(packageList)
-#packageList = ['kakkara', 'makkara', 'jakkara']
 
 app = Flask(__name__)
 
@@ -16,6 +15,14 @@ def server(data=nameList):
 def package(section):
     data = getPackage(packageList, section)
     return render_template('package.html', package=data)
+
+
+@app.route("/return-package", methods=["POST"])
+def returnPackage():
+    req = request.get_json()
+    packageName = req['name']
+    packageDict = getPackage(packageList, packageName)
+    return jsonify({'package' : packageDict})
 
 
 if __name__ == '__main__':

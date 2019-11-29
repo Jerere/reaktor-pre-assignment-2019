@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>package</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+    integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </head>
   <body>
     <h1>{{package['name']}}</h1>
@@ -10,13 +14,13 @@
     <p>{{package['desc']}}</p>
     <br>
     <h2>*if depend not in packages --> disable</h2>
-    {% if 'depends' in package %}
+    {% if package['depends'] %}
       {% for d in package['depends'] %}
         <a href="/{{d}}">{{d}}</a>
       {% endfor %}
     {% endif %}
     <br>
-    {% if 'invDepends' in package %}
+    {% if package['invDepends'] %}
       {% for i in package['invDepends'] %}
         <a href="/{{i}}">{{i}}</a>
       {% endfor %}

@@ -86,7 +86,7 @@ def getNames(a):
 
     return sorted(names)
 
-# return packages
+# return packagas
 def getPackage(a, name):
     for i in a:
         if name == i['name']:
