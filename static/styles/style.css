@@ -1,0 +1,33 @@
+body {
+  background-color: #fafafa;
+}
+
+.container {
+  margin-top: 2%;
+}
+
+.list-group, .tab-pane {
+  max-height: 80vh;
+  margin-bottom: 5vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tab-pane::-webkit-scrollbar, .list-group::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tab-pane::-webkit-scrollbar-track, .list-group::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+.tab-pane::-webkit-scrollbar-thumb, .list-group::-webkit-scrollbar-thumb {
+  height: 10%;
+  background-color: black;
+}
+
+.depend {
+  font-weight: bold;
+}

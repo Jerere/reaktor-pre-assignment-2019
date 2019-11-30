@@ -34,7 +34,7 @@ def readLines(lines):
             a = a.replace(match.group(), '')
             package_dict.update({key : a})
         elif key == 'wspace' and 'desc' in package_dict:
-            b = package_dict['desc'] + "\n" + a
+            b = str(package_dict['desc'] + "\n" + a)
             package_dict.update({'desc' : b})
 
     return package_dict

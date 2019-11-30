@@ -20,10 +20,11 @@ def package(section):
 @app.route("/return-package", methods=["POST"])
 def returnPackage():
     req = request.get_json()
-    packageName = req['name']
+    packageName = (req['name']).strip(", ")
     packageDict = getPackage(packageList, packageName)
     return jsonify({'package' : packageDict})
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
