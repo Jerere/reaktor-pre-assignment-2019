@@ -4,11 +4,16 @@ from packages import main, getNames, getPackage
 packageList = main()
 nameList = getNames(packageList)
 
-app = Flask(__name__)
+app = Flask(__name__ , static_url_path='/static', static_folder='static')
 
 @app.route("/")
 def server(data=nameList):
     return render_template('home.html', names=data)
+
+
+@app.route("/mobile")
+def mobile(data=nameList):
+    return render_template('mobile.html', names=data)
 
 
 @app.route("/<section>")
@@ -26,5 +31,5 @@ def returnPackage():
 
 
 if __name__ == '__main__':
-    app.run()
-    #app.run(debug=True)
+    #app.run()
+    app.run(debug=True)

@@ -1,5 +1,4 @@
 import re
-import time
 
 filepath_a = "/var/lib/dpkg/status"
 filepath_b = "status.real"

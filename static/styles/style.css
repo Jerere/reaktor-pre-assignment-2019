@@ -31,3 +31,7 @@ body {
 .depend {
   font-weight: bold;
 }
+
+.mobile-header {
+  font-size: 200px;
+}
