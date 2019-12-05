@@ -30,7 +30,7 @@
       <div class="col-8">
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-            <h2 id="packageName"></h2>
+            <h2 id="package_name"></h2>
             <pre id="packageDesc"></pre>
             <div class="depend-list">
             </div>
@@ -46,7 +46,7 @@
 
 <script type="text/javascript">
   function submitRequest(a) {
-    var entry = {
+    let entry = {
       name: a
     };
 
@@ -65,10 +65,10 @@
           return;
         }
         response.json().then(function(data) {
-          $('#packageName').text(data['package']['name']);
-          $('#packageDesc').text(data['package']['desc']);
-          listDepends(data['package']['depends'])
-          listInvDepends(data['package']['invDepends'])
+          $('#package_name').text(data['package']['name']);
+          $('#packageDesc').text(data['package']['description']);
+          list_dependencies(data['package']['dependencies']);
+          list_inv_dependencies(data['package']['inv_dependencies']);
         });
       })
       .catch(function(error) {
@@ -76,19 +76,21 @@
       });
   }
 
-  function listDepends(a) {
-    $('.depend-list').empty();
-    if (a) {
-      $('.depend-list').append('<p class="depend">Dependencies:</p>');
-      a.forEach(element => $('.depend-list').append('<a href="#" type="link" onclick="submitRequest(this.text)">' + element + ' </a>'));
+  function list_dependencies(dependencies) {
+    let dependency_list = $('.depend-list')
+    dependency_list.empty()
+    if (dependencies) {
+      dependency_list.append('<p class="depend">Dependencies:</p>');
+      dependencies.forEach(element => dependency_list.append('<a href="#" type="link" onclick="submitRequest(this.text)">' + element + ' </a>'));
     }
   }
 
-  function listInvDepends(a) {
-    $('.inv-depend-list').empty();
-    if (a) {
-      $('.inv-depend-list').append('<p class="depend">Inverse dependencies:</p>');
-      a.forEach(element => $('.inv-depend-list').append('<a href="#" type="link" onclick="submitRequest(this.text)">' + element + ' </a>'));
+  function list_inv_dependencies(inv_dependencies) {
+    let inv_dependency_list = $('.inv-depend-list')
+    inv_dependency_list.empty()
+    if (inv_dependencies) {
+      inv_dependency_list.append('<p class="depend">Inverse dependencies:</p>');
+      inv_dependencies.forEach(element => inv_dependency_list.append('<a href="#" type="link" onclick="submitRequest(this.text)">' + element + ' </a>'));
     }
   }
 

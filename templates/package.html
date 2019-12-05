@@ -11,17 +11,16 @@
   <body>
     <h1>{{package['name']}}</h1>
     <br>
-    <p>{{package['desc']}}</p>
+    <p>{{package['description']}}</p>
     <br>
-    <h2>*if depend not in packages --> disable</h2>
-    {% if package['depends'] %}
-      {% for d in package['depends'] %}
+    {% if package['dependencies'] %}
+      {% for d in package['dependencies'] %}
         <a href="/{{d}}">{{d}}</a>
       {% endfor %}
     {% endif %}
     <br>
-    {% if package['invDepends'] %}
-      {% for i in package['invDepends'] %}
+    {% if package['inv_dependencies'] %}
+      {% for i in package['inv_dependencies'] %}
         <a href="/{{i}}">{{i}}</a>
       {% endfor %}
     {% endif %}
