@@ -26,10 +26,10 @@ git clone https://github.com/Jerere/reaktor-pre-assignment-2019.git
 cd reaktor-pre-assignment-2019
 ``` 
 
-Install flask and run server.py:
+Install flask and run app.py:
 ``` 
 pip install flask
-python server.py
+python app.py
 ``` 
 
 App now runs on localhost:5000
