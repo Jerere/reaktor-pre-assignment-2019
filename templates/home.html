@@ -7,7 +7,7 @@
   <script type="text/javascript" src="/static/jquery/jquery-3.4.1.min.js"></script>
   <script src="/static/bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='styles/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body onload="onLoad();">
@@ -95,11 +95,11 @@
   }
 
   function onLoad() {
-  //  if (screen.width <= 699) {
-  //    document.location = "mobile";
-  //  }
-  //  else {submitRequest("{{names[0]}}");}
-  submitRequest("{{names[0]}}");
+    if (screen.width <= 600) {
+      document.location = "mobile";
+    } else {
+      submitRequest("{{names[0]}}");
+    }
   }
 </script>
 

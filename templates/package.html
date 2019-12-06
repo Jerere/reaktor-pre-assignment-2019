@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>package</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-    integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <h1>{{package['name']}}</h1>
-    <br>
-    <p>{{package['description']}}</p>
-    <br>
+
+<head>
+  <meta charset="utf-8">
+  <title>package</title>
+  <script type="text/javascript" src="/static/jquery/jquery-3.4.1.min.js"></script>
+  <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="container-fluid mt-3">
+    <div class="row col-12 back-to-list">
+      <img src="/static/left-arrow.png" class="left-arrow" />
+      <a href="/mobile"> Back to package-list</a>
+    </div>
+    <div class="row col-12 mt-3">
+      <h2>{{package['name']}}</h2>
+    </div>
+    <div class="row col-12">
+      <pre>{{package['description']}}</pre>
+    </div>
     {% if package['dependencies'] %}
-      {% for d in package['dependencies'] %}
-        <a href="/{{d}}">{{d}}</a>
+    <div class="row col-12">
+      <p class="depend">Dependencies:</p>
+    </div>
+    <div class="row col-12">
+      {% for dependencies in package['dependencies'] %}
+      <a href="/{{dependencies}}">{{dependencies}} &nbsp;</a>
       {% endfor %}
-    {% endif %}
-    <br>
+      {% endif %}
+    </div>
     {% if package['inv_dependencies'] %}
-      {% for i in package['inv_dependencies'] %}
-        <a href="/{{i}}">{{i}}</a>
+    <div class="row col-12 mt-3">
+      <p class="depend">Inverse dependencies:</p>
+    </div>
+    <div class="row col-12 mb-3">
+      {% for inv_dependencies in package['inv_dependencies'] %}
+      <a href="/{{inv_dependencies}}">{{inv_dependencies}} &nbsp;</a>
       {% endfor %}
-    {% endif %}
-  </body>
+      {% endif %}
+    </div>
+  </div>
+</body>
+
 </html>
