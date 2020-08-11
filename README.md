@@ -2,7 +2,7 @@
 Reaktor pre-assignment for junior developer positions 2019
 
 Program that reads information about packages from /var/lib/dpkg/status -file.  
-Packages and their contents are brosable via HTML interface.
+Packages and their contents are browsable via web interface.
 
 
 Live at: https://package-app.herokuapp.com/
